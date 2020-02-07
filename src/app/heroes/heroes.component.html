@@ -1,0 +1,7 @@
+<div *ngIf="heroes">
+  <ul>
+    <li *ngFor="let hero of heroes">
+      <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+    </li>
+  </ul>
+</div>
