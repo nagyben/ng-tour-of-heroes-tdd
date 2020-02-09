@@ -46,16 +46,11 @@ describe("HeroesComponent", () => {
     }
   });
 
-  // it('should show an input box to change the hero name', () => {
-  //   const input = fixture.nativeElement.querySelector('input');
-  //   expect(input).toBeTruthy();
-
-  //   // simulate name change
-  //   input.value = "herpo";
-  //   input.dispatchEvent(new Event('input')); // dispatch input event change
-  //   fixture.detectChanges(); // update fixture
-
-  //   const h2 = fixture.nativeElement.querySelector('h2.hero-name');
-  //   expect(h2.textContent).toEqual("HERPO");
-  // });
+  it("should show the HeroDetail component when a hero is selected", () => {
+    const heroDetailComponent = fixture.nativeElement.querySelector('app-hero-detail')
+    const li = fixture.nativeElement.querySelector("li");
+    li.dispatchEvent(new Event('click'));
+    fixture.detectChanges();
+    expect(heroDetailComponent).toBeTruthy();
+  });
 });
