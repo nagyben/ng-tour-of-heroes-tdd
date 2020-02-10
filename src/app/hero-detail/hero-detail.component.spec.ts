@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { HeroDetailComponent } from "./hero-detail.component";
 import { Hero } from "../hero";
+import { FormsModule } from '@angular/forms';
 
 describe("HeroDetailComponent", () => {
   let component: HeroDetailComponent;
@@ -11,7 +12,8 @@ describe("HeroDetailComponent", () => {
   };
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HeroDetailComponent]
+      declarations: [HeroDetailComponent],
+      imports: [FormsModule],
     }).compileComponents();
   }));
 
@@ -32,5 +34,13 @@ describe("HeroDetailComponent", () => {
     expect(heroDetailDiv.querySelector('h2').textContent).toContain(hero.name)
     expect(heroDetailDiv.querySelector('input')).toBeTruthy();
     expect(heroDetailDiv.textContent).toMatch(`.*${hero.name}.*id:.*${hero.id}.*`)
+  });
+
+  it("changes the hero name when the input box is edited", () => {
+    const input = fixture.nativeElement.querySelector('input')
+    expect(input).toBeTruthy();
+    input.value = 'herpo';
+    input.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
   });
 });
