@@ -40,7 +40,12 @@ describe('AppComponent', () => {
   });
 
   it('should show the HeroComponent', () => {
-    const heroComponent = fixture.nativeElement.querySelector('app-heroes')
+    const heroComponent = fixture.nativeElement.querySelector('app-heroes');
     expect(heroComponent).toBeTruthy();
+  });
+
+  it('should show the MessagesComponent', () => {
+    const messagesComponent = fixture.nativeElement.querySelector('app-messages');
+    expect(messagesComponent).toBeTruthy();
   });
 });
